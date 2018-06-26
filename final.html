@@ -1,0 +1,262 @@
+<html>
+
+<head>
+  <title>Week 1</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/icon.ico">
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="title">Final Project</div>
+    <div class="sub-title">How To Make (Almost) Anything</div>
+    <div class="sub-sub-title">Final Project</div>
+  </div>
+
+  <div class="navbar">
+    <hr>
+    <div class="navbar-list">
+      <span> <a href="week14.html" style="text-decoration:none"> < </a> &nbsp </span>
+        <a href="index.html">Home</a> |
+        <a href="week1.html">1</a> |
+        <a href="week2.html">2</a> |
+        <a href="week3.html">3</a> |
+        <a href="week4.html">4</a> |
+        <a href="week5.html">5</a> |
+        <a href="week6.html">6</a> |
+        <a href="week7.html">7</a> |
+        <a href="week8.html">8</a> |
+        <a href="week9.html">9</a> |
+        <a href="week9.html">10</a> |
+        <a href="week10.html">10</a> |
+        <a href="week11.html">11</a> |
+        <a href="week12.html">12</a> |
+        <a href="week13.html">13</a> |
+        <a href="week14.html">14</a> |
+        Final
+      <span>
+        &nbsp <a href="final.html" style="visibility: hidden"> > </a> </span>
+    </div>
+    <hr>
+  </div>
+
+  <div class="week-content">
+
+    <p>
+      <a href="week1.html"> first bad idea </a>
+      <br>
+      <a href="bad2.html"> second bad idea </a>
+    </p>
+
+    <h3>
+      Make an Enigma Machine!
+    </h3>
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg/800px-Enigma_%28crittografia%29_-_Museo_scienza_e_tecnologia_Milano.jpg">
+
+    <p>
+      The Enigma Machine was a device used by the Germans in WWII to encrypt and decrypt messages. Here is a very consise and informational video
+      about what the Enigma Machine: <a href="https://www.youtube.com/watch?v=G2_Q9FoD-oQ">video link</a>.
+    </p>
+    <p>
+      To summarize, the Enigma Machine generates its cryptrographic power by a series of wheels and a plug board. The wheels scramble any input, and on a key press the rotor will turn. One
+      consequence of this is that 'A' may be encrypted as 'B' in the beginning of message by may be encrpted as 'C' later in the message. It all depends on what the
+      initial settings of the rotor is.
+    </p>
+      (Historically, the rotor settings were distributed by paper. Everyday, a different setting was used. This constant changing of the settings meant that even if you were able to decrpypt a set of messages,
+      a whole new scheme would be in place the next day. With that in mind, any effective plan to break the Enigma Machine would need to do it fast.)
+    <p>
+      The next tier of encryption involved plugboard settings. Up to 10 pairs of letters could be swapped preceding manipulation by the wheels. This adds a lot of
+      complexity. A massive team of code breakers (including Alan Turing) at Bletchley Park would break the Enigma Machine. Although it is an outdated
+      method of cryptrography, the story of the machine remains impressive.
+    </p>
+
+    <img src="http://enigma.louisedade.co.uk/wiringdiagram.png">
+
+
+    <h3>
+      Building it
+    </h3>
+
+    <p>
+      This project can be modularized into three major parts.
+      <br> 1. The keyboard input. The goal is to have a button for every key. The output should be mapped into 5 bits. This is so that a
+        microprocessor can easily process it.
+      <br> 2. The microprocessor. The goal is to receive the keyboard input and to perform mathematical operations on it. The output is the LED Display.
+      <br> 3. The LED display. The goal is to light up a single letter.
+      <br> 4. The housing. It is a simple box to encase everything.
+      <br> 5. The network interface. Be able to configure the microprocessor from a laptop through ftdi.
+    </p>
+
+    <p>
+     Parts 2,3,4 are completed. Parts 1 and 5 I did not finish in time.
+    </p>
+
+    <img src="assets/img/final/work_large.jpg">
+
+    <h4>
+      Keyboard Input
+    </h4>
+
+    <p>
+      There are 26 characters. The neat thins is that only one character can be pressed at a time, so the goal is to encode this input into 5 bits. My intention is to
+      map every character into a 5 bit string. So A -> 00001, B-> 00010, and so on. My plan was to use an 74LS148 IC, which is an 8-to-3
+      encoder. Then by combining several of these, I could get a 32-to-5 encoder.
+    </p>
+
+    <p>
+      I didn't get around to making the actual physical button inputs. To test being able to receive inputs, I just set several the pins with another voltage source.
+    </p>
+    <h4>
+      Input Processing
+    </h4>
+
+    <p>
+      This acts as the message scrambler. Once the microprocessor receives the character input, it begins to simulate the phases of
+      message encryption.
+    </p>
+
+    <p>
+      I designed all the boards using Eagle.
+    </p>
+
+    <img src="assets/img/final/other_large.jpg">
+
+    <p>
+      I tried to use the OtherMill for the first time, but it didn't turn out too well. I went back to using the Roland SRM 20.
+    </p>
+
+    <img src="assets/img/final/board_large.jpg">
+
+    <p>
+      I premptively made 3 of the same board. The way I had made it, they were very general purpose microcontrollers with 6 digital input pins and 6 output pins. I
+      also added a serial bus port should I choose to put multiple of them together. At the very least, I would need 1 one these to read the keyboard buttons and output to the LEDs.
+    </p>
+
+    <p>
+      I ran into a setback trying to program my board. I had tried too use my usb progammer I made, but it couldn't communicate with the ATXMEGA16E5. It did fine trying to
+      program boards with the ATTINY44 and ATTINY45. This would take a while because I didn't know where the issue was. I tried remaking the programmer and the boards but it didn't work.
+      Then I remade the hello world board for the ATXMEGA16E5 and it still didn't work. I finally tried to use a different progammer type. I used the Atmelice Programmer. The exact
+      setting is to use the atmelice_pdi.
+    </p>
+
+    <p>
+      I was able to program a simple encoder. The idea is to replicae the enigma exactly. Each wheel basically maps a letter into another letter.
+    </p>
+
+    <p>
+      The decoding process was more complicated and I wasn't able to get around to it. One thing to keep in mind is that on every keypress, the wheel ends to rotate. The intention was to
+      use my laptop to interface with the board. I had wired the TX and RX cables and a serial bus connection, so that I could program the intial state of the board.
+
+      The user would be able to see the current rotor positions and also be able to configure the enigma machine.
+    </p>
+    <h4>
+      Letter Display
+    </h4>
+
+    <p>
+      Once we know what the encrpted character is, we now need to light it. The trick here is to implement a charlieplexed circuit. With only 6 pins,
+      we can control 30 LEDs, which is sufficient.
+
+      I started by looking at the 20 LED charlieplexing reference from <a href="http://academy.cba.mit.edu/classes/output_devices/index.html"> here</a>.
+      I would need to expand on it. I milled a board that implemented only the circuit.
+    </p>
+
+    <p>
+      My first attempt at the LED matrix turned out to be a disaster.
+    </p>
+
+    <img src="assets/img/final/charlie_large.jpg">
+
+    <p>
+      It turns out I had incredibly miswired the LEDs. After fixing the first one with a bunch of hacks, I was able to get the LEDs to all work.
+    </p>
+
+    <video controls>
+      <source src="assets/img/final/charlie1_video.mp4" type="video/mp4">
+    </video>
+    <p>
+      Then I remade another board with the correct wiring.
+    </p>
+
+    <img src="assets/img/final/charlie2_large.jpg">
+
+      <p>
+        This one works, and it is even aligned to the housing.s
+      </p>
+
+    <h4>
+      The Housing
+    </h4>
+
+    <p>
+      The box frame was made by laser cutting an acrylic sheet. TA Gavin showed us a cool resource to make a simple 3D box (<a src="http://boxdesigner.connectionlab.org/">source</a>). The trick here was that I
+      had to be very careful with the letter spacing. Of course, I chose a monospace font. The spacing would be important when integrating with the display and the keyboard buttons.
+    </p>
+
+    <img src="assets/img/final/settings_large.jpg">
+
+    <p>
+      I used the box as a starting point. Then I overlayed the text in the correct position.
+    </p>
+
+    <img src="assets/img/final/prep_large.jpg">
+
+      <p>
+      The process here is to remove the top layer and leave the bottom on there.
+      </p>
+
+    <img src="assets/img/final/laser_large.jpg">
+
+    <p>
+      Here is the laser cutting in the process.
+    </p>
+
+    <img src="assets/img/final/leftover_large.jpg">
+    <img src="assets/img/final/top_large.jpg">
+
+    <p>
+      The top contains two parts, the lightboard and the keyboard.
+    </p>
+
+    <video controls>
+      <source src="assets/img/final/led_video.mp4" type="video/mp4">
+    </video>
+
+    <p>
+      Here you can see a video of the LEDs rotating through every character. EVERYTHING IS ALIGNED! I'm actually impressesed that
+      I was able to do this. Underneath the LED array is actually 30 units.
+    </p>
+    <img src="assets/img/final/box_large.jpg">
+    <p>
+      At the front, you can also see another keyboard panel. This is to implement the plug board.
+    </p>
+
+
+    <h4>
+      Cost breakdown
+    </h4>
+
+    <p>Here is a link to a <a href="https://docs.google.com/spreadsheets/d/1QB6423YKGgz4sKyo2N6z1tWAhuZ0JgIOheJPGvde_AM/edit?usp=sharing"> sheet </a>.
+    So most of the eletronic equipment doesn't cost that much. The only thing that surprised me was the cost of the acrylic sheet. The total cost
+    is around 20 dollars, which is pretty good.
+    </p>
+
+    <h4>
+      Files
+    </h4>
+
+    <p>
+      <a href="assets/img/final/board_traces.png"> board_traces.png </a>
+      <br>
+      <a href="assets/img/final/board_outline.png"> board_outline.png </a>
+      <br>
+      <a href="assets/img/final/charlie_traces.png"> charlie_traces.png </a>
+      <br>
+      <a href="assets/img/final/charlie_outline.png"> charlie_outline.png </a>
+    </p>
+  </div>
+
+</body>
+
+</html>

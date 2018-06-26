@@ -1,0 +1,120 @@
+<html>
+
+<head>
+  <title>Week 5</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/icon.ico">
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="title">Electronics Design</div>
+    <div class="sub-title">How To Make (Almost) Anything</div>
+    <div class="sub-sub-title">Week 5</div>
+  </div>
+
+  <div class="navbar">
+    <hr>
+    <div class="navbar-list">
+      <span> <a href="week4.html" style="text-decoration:none"> < </a> &nbsp </span>
+        <a href="index.html">Home</a> |
+        <a href="week1.html">1</a> |
+        <a href="week2.html">2</a> |
+        <a href="week3.html">3</a> |
+        <a href="week4.html">4</a> |
+        5 |
+        <a href="week6.html">6</a> |
+        <a href="week7.html">7</a> |
+        <a href="week8.html">8</a> |
+        <a href="week9.html">9</a> |
+        <a href="week10.html">10</a> |
+        <a href="week11.html">11</a> |
+        <a href="week12.html">12</a> |
+        <a href="week13.html">13</a> |
+        <a href="week14.html">14</a> |
+        <a href="final.html">Final</a>
+      <span>
+        &nbsp <a href="week6.html" style="text-decoration:none"> > </a> </span>
+    </div>
+    <hr>
+  </div>
+
+  <div class="week-content">
+
+    <h4>
+      Part 1: redraw the echo hello-world board,
+      add (at least) a button and LED (with current-limiting resistor)
+    </h4>
+
+    <p>
+      I used Eagle to draw the board. I imported the fab library and began by adding all the base parts.
+      I decided to add 3 LEDs. One LED is always on if there is power. The other two turn on when the button is pressed.
+      There was no particular reason for the lights (no programming intentions in sight), I just wanted get familar with designing in eagle.
+      The schematic part wasn't too difficult. Most of my time went into routing the parts.
+    </p>
+
+    <img src="assets/img/week5/schematic_large.jpg">
+
+    <p>
+      Routing is perhaps the fun part. Something I didn't consider early on but would become important was the width of the routes. I initially had
+      them set to 0.0016 in. This would turn out to be a problem when making it because of the 3 routes I squeezed inside the ATTINY44A microcontroller.
+      The vectorization did not have enough space to cut those routes. The middle section just became a large blob with no copper routes.
+
+      I had tried to design a board that didnt need to go squeeze so much, but I gave up after trying for a long time. I eventually solved this by making those routes smaller.
+    </p>
+
+    <img src="assets/img/week5/board_large.jpg">
+
+    <h4>
+      Part 2: make it
+    </h4>
+
+    <p>
+      Here are my files for the milling machine.
+      <br>
+      <a href="assets/img/week5/trace.png"> traces.png </a>
+      <br>
+      <a href="assets/img/week5/outline.png"> outline.png </a>
+    </p>
+
+    <p>
+      I exported the board into an image. The exact proceure was to set the monochrome flag on and the dpi to 1000. Then I used paint to crop the image,
+      making the trace png and the outline png.
+
+      Note to self: The copper routes can be very fragile. One issue is that when removing a part after soldering the copper routes would also be removed.
+
+    </p>
+
+    <p>
+      One huge mistake I made was changing the dpi setting. I had changed the dpi from 1000 to 750 and cut the board to completetion only to find out that none of the parts fit. :(
+    </p>
+
+    <img src="assets/img/week5/before_large.jpg">
+    <img src="assets/img/week5/done_large.jpg">
+
+    <h4>
+      Part 2: test it
+    </h4>
+
+    <p>
+      The LEDs work!
+    </p>
+
+    <img src="assets/img/week5/power_large.jpg">
+
+    <p>
+      So does the button press.
+    </p>
+
+    <img src="assets/img/week5/button_large.jpg">
+
+    <p>
+      I wasn't able to get the test program to work. :(
+    </p>
+
+  </div>
+
+
+</body>
+
+</html>

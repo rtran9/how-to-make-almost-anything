@@ -1,0 +1,124 @@
+<html>
+
+<head>
+  <title>Week 8</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/icon.ico">
+</head>
+
+<body>
+
+  <div class="page-header">
+    <div class="title">Output Devices</div>
+    <div class="sub-title">How To Make (Almost) Anything</div>
+    <div class="sub-sub-title">Week 9</div>
+  </div>
+
+  <div class="navbar">
+    <hr>
+    <div class="navbar-list">
+      <span> <a href="week8.html" style="text-decoration:none"> < </a> &nbsp </span>
+        <a href="index.html">Home</a> |
+        <a href="week1.html">1</a> |
+        <a href="week2.html">2</a> |
+        <a href="week3.html">3</a> |
+        <a href="week4.html">4</a> |
+        <a href="week5.html">5</a> |
+        <a href="week6.html">6</a> |
+        <a href="week7.html">7</a> |
+        <a href="week8.html">8</a> |
+        9 |
+        <a href="week10.html">10</a> |
+        <a href="week11.html">11</a> |
+        <a href="week12.html">12</a> |
+        <a href="week13.html">13</a> |
+        <a href="week14.html">14</a> |
+        <a href="final.html">Final</a>
+      <span>
+        &nbsp <a href="week10.html" style="text-decoration:none"> > </a> </span>
+    </div>
+    <hr>
+  </div>
+
+
+<div class="week-content">
+  <h4>
+    add an output device to a microcontroller board you've designed and program it to do something
+  </h4>
+
+  <img src="assets/img/week9/motion1_gif.gif">
+
+  <p>
+    For this week, I definitely wanted to do something with stepper motors. My final project will involve
+    making an X-Y Plotter. So this week, I learn how to program a stepper motor. I follow the guidelines at
+    <a href="http://academy.cba.mit.edu/classes/output_devices/index.html">output devices</a> to get started.
+  </p>
+
+  <p>
+    I decide to follow a template for the bipolar stepper motor. At the time of the decision I had no idea what that meant.
+
+    The first step is to recreate the board in Eagle.
+  </p>
+
+  <img src="assets/img/week9/schematic_large.jpg">
+  <img src="assets/img/week9/board_large.jpg">
+
+  <p>
+    Using the milling machine is straightforward now.
+  </p>
+
+  <img src="assets/img/week9/mill_large.jpg">
+
+  <p>
+    So is soldering the components.
+  </p>
+  <img src="assets/img/week9/solder_large.jpg">
+
+  <p>
+    Tough part of this week is figuring out the wiring for the stepper motors and getting it to program.
+
+    So it turns out the lab didn't have a bipolar stepper motor, only unipolar stepper motars. I learned
+    that I could use the same board to use the unipolar stepper motor. I ended trying to use two different types
+    from Jameco.
+  </p>
+
+  <p>
+    Some things that took longer than it should have was how to get the power source to output the correct voltage and getting
+    avrdude to work.
+
+    For a while I was able to get the board to program, but the motors weren't working. Turns out I needed to up the voltage.
+  </p>
+
+  <p>
+    Wiring for small motor 2138812.
+  </p>
+  <img src="assets/img/week9/wiring1_large.jpg">
+
+  <p>
+    Wiring for bigger motor 	238538.
+  </p>
+  <img src="assets/img/week9/wiring2_large.jpg">
+
+  <p>
+    Here are my files if you are interested.
+    <br>
+    <a href="assets/img/week9/traces.png"> traces.png </a>
+    <br>
+    <a href="assets/img/week9/outline.png"> outline.png </a>
+    <br>
+    <a href="assets/img/week9/eagle.brd"> eagle.brd </a>
+  </p>
+
+
+  <p>
+    Here they are in motion.
+  </p>
+
+  <img src="assets/img/week9/motion1_gif.gif">
+  <img src="assets/img/week9/motion2_gif.gif">
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<html>
+
+<head>
+  <title>Week 7</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/icon.ico">
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="title">Embedded Programming</div>
+    <div class="sub-title">How To Make (Almost) Anything</div>
+    <div class="sub-sub-title">Week 7</div>
+  </div>
+
+  <div class="navbar">
+    <hr>
+    <div class="navbar-list">
+      <span> <a href="week6.html" style="text-decoration:none"> < </a> &nbsp </span>
+        <a href="index.html">Home</a> |
+        <a href="week1.html">1</a> |
+        <a href="week2.html">2</a> |
+        <a href="week3.html">3</a> |
+        <a href="week4.html">4</a> |
+        <a href="week5.html">5</a> |
+        <a href="week6.html">6</a> |
+        7 |
+        <a href="week8.html">8</a> |
+        <a href="week9.html">9</a> |
+        <a href="week10.html">10</a> |
+        <a href="week11.html">11</a> |
+        <a href="week12.html">12</a> |
+        <a href="week13.html">13</a> |
+        <a href="week14.html">14</a> |
+        <a href="final.html">Final</a>
+      <span>
+        &nbsp <a href="week8.html" style="text-decoration:none"> > </a> </span>
+    </div>
+    <hr>
+  </div>
+
+  <div class="week-content">
+    <h4>
+       program your board to do something
+    </h4>
+
+    <img src="assets/img/week7/done_large.jpg">
+
+    <p>
+      For week 5, I had made a board using an ATTINY44. For this week, I wanted to try using an ATXMEGA16E5.
+      My initial goal was to try to program a tic-tac-toe board using LEDs and buttons. I couldn't quite figure out how to
+      do this with 32 pins easily. I opted to make a digital number LED, the ones you see on digital clocks.
+    </p>
+    <p>
+      I followed the hello.ftdi.16E5 guide found <a href="http://academy.cba.mit.edu/classes/embedded_programming/index.html">here</a>
+      as a template and built on top of it.
+
+      I used Autodesk Eagle. The fab.lbr actually didn't have the part for the ATXMEGA16E5-AURCT-ND. So making this part was a cool exercise.
+
+      Basically, the dimensions look like the other 32 pin microcontrollers in the library but the pins are messed up. I referenced the manual
+      to redesign the part for the ATXMEGA16E5.
+    </p>
+
+    <img src="assets/img/week7/schematic_large.jpg">
+
+    <p>
+      On the top I added a button and an LED. On the buttom I added the 14 LEDs to make the 7 segments of a number.
+    </p>
+
+    <img src="assets/img/week7/board_large.jpg">
+
+    <p>
+      Here are my files for the milling machine.
+      <br>
+      <a href="assets/img/week7/robert_traces.png"> traces.png </a>
+      <br>
+      <a href="assets/img/week7/robert_outline.png"> outline.png </a>
+    </p>
+
+    <p>
+      The only difficult part to soldering was the microcontroller. 32 pins with very small margins was tedious. (I actually had short between two pins on my first go).
+    </p>
+    <img src="assets/img/week7/before_large.jpg">
+
+    <p>
+      Before proceeding with programming the number display, I first went through the hello.ftdi.16E5 guide. After adding the minimal parts, I tested the programming
+      of the board with the given echo, blink, and ring programs.
+    </p>
+
+    <img src="assets/img/week7/stage1_large.jpg">
+
+
+    <img src="assets/img/week7/stage2_large.jpg">
+
+    <p>
+      Everything went well, and I continued to solder everything else. The only tricky thing about the LEDs was to make sure that the LEDs were aligned correctly.
+    </p>
+
+    <img src="assets/img/week7/done_large.jpg">
+
+    <p>
+      If you look closely, there is a solder bridge. I had put a resistor there. I would find out that the resistor was unnecessary and was able to give more brightness to the LEDs.
+    </p>
+
+    <p>
+      Programming the board was a lot of exploration. I worked on the template programs. My first goal was to be able to light up each number.
+      My goal was to have the number increase as I changed the button. I couldn't quite figure this out. Instead, I was able to get the board
+      to flip through the numbers.
+
+      Here is a <a href="https://www.dropbox.com/s/d0h5c0xskc7p5nz/VID_20171025_032908.mp4?dl=0"> video</a>.
+    </p>
+
+    <p>
+      Here is some code that works.
+      <br>
+      <a href="assets/img/week7/blink.numbers.c"> blink.numbers.c </a>
+      <br>
+      <a href="assets/img/week7/blink.numbers.make"> blink.numbers.make </a>
+    </p>
+
+    <p>
+      One LED flashes with the numbers. The other LED stays on.
+      For some reason, the LED is only on when I press the button.
+    </p>
+
+
+  </div>
+</body>
+</html>

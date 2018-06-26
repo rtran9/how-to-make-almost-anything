@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+a {
+  color: #000;
+}
+
+body {
+  margin-left: 15%;
+  margin-right: 15%;
+  font-family: Source Sans Pro;
+}
+
+hr {
+  width: 75%;
+  border: 0;
+  height: 2px;
+  background: #000;
+}
+
+.about {
+  margin-left: 12.5%;
+  margin-right: 12.5%;
+}
+
+.navbar {
+    text-align: center;
+}
+
+.page-header {
+  margin-top: 3em;
+  margin-bottom: 1em;
+  text-align: center;
+}
+
+.page-header .title {
+  font-size: 2em;
+}
+
+.page-header .sub-title {
+  font-size: 2em;
+}
+
+.page-header .sub-sub-title {
+  font-size: 1em;
+}
+
+.week .title {
+  text-align: center;
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.week .image-bar {
+  text-align: center;
+}
+
+.week-content .title {
+  font-size: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.week-content .image-bar {
+  text-align: center;
+}
+
+.week-content .image-bar img {
+  margin: 1%;
+  width: 20%;
+}

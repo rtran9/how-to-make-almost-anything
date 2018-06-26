@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <title>Week 10</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="icon" href="assets/img/icon.ico">
+</head>
+
+<body>
+  <div class="page-header">
+    <div class="title">Machine Design</div>
+    <div class="sub-title">How To Make (Almost) Anything</div>
+    <div class="sub-sub-title">Week 10</div>
+  </div>
+
+  <div class="navbar">
+    <hr>
+    <div class="navbar-list">
+      <span> <a href="week9.html" style="text-decoration:none"> < </a> &nbsp </span>
+        <a href="index.html">Home</a> |
+        <a href="week1.html">1</a> |
+        <a href="week2.html">2</a> |
+        <a href="week3.html">3</a> |
+        <a href="week4.html">4</a> |
+        <a href="week5.html">5</a> |
+        <a href="week6.html">6</a> |
+        <a href="week7.html">7</a> |
+        <a href="week8.html">8</a> |
+        <a href="week9.html">9</a> |
+        10 |
+        <a href="week11.html">11</a> |
+        <a href="week12.html">12</a> |
+        <a href="week13.html">13</a> |
+        <a href="week14.html">14</a> |
+        <a href="final.html">Final</a>
+      <span>
+        &nbsp <a href="week11.html" style="text-decoration:none"> > </a> </span>
+    </div>
+    <hr>
+  </div>
+
+  <div class="week-content">
+    <h4>  plan and make a machine <br>
+   document the group project and your individual contribution </h4>
+  </div>
+
+  <img src="assets/img/week10/group_large.jpg">
+
+  <p>
+    This week is a group project. You can find the group page <a href="../../machines/index.html">here</a>.
+  </p>
+
+  <p>
+    I was part of the fabrication sub-team. Our job was to take designs and fabricate them. Most of the work was actually in vcarve generating the toolpaths.
+  </p>
+
+  <img src="assets/img/week10/pinion_large.jpg">
+
+  <p>
+    The first piece I tried was the pinion. The sharkbot in the EDS shop could take an input stl file and very easily generate the toolpaths. Unfortunately, the sharkbot
+    is too small for most of the things we wanted to fabricate. There was a lot of errors and we learned a lot from the first pinion cut, which didn't turn out good at all.
+
+    The cut depth should be increased, we used 0.39" for any of the 3/8" pieces.
+
+    We ended up not using the sharkbot for anything and used the shopbot for all the parts. This was inconvenient because we needed to generate the toolpaths manually.
+  </p>
+
+  <img src="assets/img/week10/hdpe_large.jpg">
+  <p>
+    Most of the parts were made using a sheet of hdpe. The tedious part to these was getting the chamfer line correct. To do chamfer mill, a vector is made 1.25 mm parallel. The toolpath
+    is then directed to move on the line. Our first attempt at the rails failed. The pocket and teeth were not smooth. It turns out that we shouldn't have done the 1/16"" finish and
+    that the toolpath for the pocket was incorrect. This error would set us back a lot of time because the rails tool the longest in time.
+  </p>
+
+  <img src="assets/img/week10/rail_large.jpg">
+
+  <p>
+    The rail was made out of hpde, while the incasing was made out of delrin. The two top pieces needed to have a chamfer. A total of 12 pieces were milled to create 3 sets.
+  <p>
+
+  <img src="assets/img/week10/toolpath_large.jpg">
+
+  <p>
+    I spent a lot of time using vcarve. From the 2D images I would make the tool paths out of the vectors. You can see here that they usually involed a lot of layers.
+    The key part is that we had 1/16", 1/8", 1/4", and "1/2" bits. Each of these needed to be on seperate shopbot file. All of them required to have small holes too so
+    we could fix the pieces down.
+  </p>
+
+  <p>
+    *Many thanks to our TA Gavin.
+  </p>
+</body>
+
+</html>
